@@ -1,0 +1,13 @@
+.error_warning {
+    color: red;
+}
+
+.noErrorInput {
+    /*border: 1px solid orange;*/
+    color:black;
+;}
+
+.errorInput {
+    border: 1px solid red;
+    color: red;
+}

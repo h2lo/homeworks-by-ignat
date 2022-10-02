@@ -1,0 +1,17 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    margin-left: 20px;
+}
+
+.affairs {
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    margin: 20px 0px 20px 0px;
+}
+
+.filter_buttons {
+    display: flex;
+    gap: 10px;
+}
