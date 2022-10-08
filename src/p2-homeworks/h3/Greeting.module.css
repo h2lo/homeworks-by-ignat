@@ -1,13 +1,37 @@
-.error_warning {
-    color: red;
+.input {
+    margin-left: 10px;;
 }
 
-.noErrorInput {
-    /*border: 1px solid orange;*/
-    color:black;
-;}
+.input:focus {
+    outline: none;
+    border: 3px solid green ;
+}
+
+.errorWarning {
+    color: red;
+    height: 20px;
+    margin-left: 10px;
+}
 
 .errorInput {
-    border: 1px solid red;
+    outline: none;
+    border: 3px solid red;
     color: red;
+    margin-left: 10px;
+}
+
+.button {
+    margin: 0 10px;
+}
+
+.button:active {
+
+}
+
+.button:focus {
+
+}
+
+.button:disabled {
+
 }

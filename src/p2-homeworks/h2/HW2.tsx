@@ -24,19 +24,22 @@ const defaultAffairs: (Array<AffairType>) = [ // need to fix any
 export const filterAffairs = (affairs: (Array<AffairType>), filter: FilterType): (Array<AffairType>) => { // need to fix any
     return (filter !== 'all') ? affairs.filter((elem) => elem.priority === filter) : affairs
 
-    // if (filter !== 'all')  return affairs
+    // if (filter === 'all')  return affairs
     // else if (filter === 'low')
-    //     return affairs = affairs.filter((elem) => elem.priority === filter)
+    //     return affairs.filter((elem) => elem.priority === filter)
     // else if (filter === 'high') {
-    //     return affairs = affairs.filter((elem) => elem.priority === filter)
+    //     return affairs.filter((elem) => elem.priority === filter)
     // } else if (filter === 'middle')  {
-    //     return affairs = affairs.filter((elem) => elem.priority === filter)
+    //     return affairs.filter((elem) => elem.priority === filter)
     // }
     // return affairs
 
+    // if (filter === 'all')  return affairs
+    // else return affairs.filter((elem) => elem.priority === filter)
+
 }
 export const deleteAffair = (affairs: (Array<AffairType>), _id: number): (Array<AffairType>) => { // need to fix any
-    return affairs = affairs.filter((elem)=> elem._id !==_id)// need to fix
+    return affairs.filter((elem)=> elem._id !==_id) // need to fix
 }
 
 function HW2() {

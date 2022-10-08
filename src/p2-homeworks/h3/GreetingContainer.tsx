@@ -11,34 +11,42 @@ type GreetingContainerPropsType = {
 // function GreetingContainer(props: GreetingPropsType) {
 
 // более современный и удобный для про :)
+//
+
 // уровень локальной логики
 const GreetingContainer: React.FC<GreetingContainerPropsType> = ({users, addUserCallback}) => { // деструктуризация пропсов
     const [name, setName] = useState<string>('') // need to fix any
     let [error, setError] = useState<string>('') // need to fix any
 
-    const setNameCallback = (event: ChangeEvent<HTMLInputElement>) => {// need to fix any
-        setName(event.currentTarget.value.trim())
-        setError('')
-    }
+    const setNameCallback = (event: ChangeEvent<HTMLInputElement>) => { // need to fix any
 
-    const onKeyPressHandler = (event:KeyboardEvent<HTMLInputElement>) => {
-        if(event.key === 'Enter') {
-         addUser()
+        const trimmedName = event.currentTarget.value.trim() // обрезаем пробелы в начале и конце name
+
+        // если trimmedName - true, то ...
+        if (trimmedName) {
+            setName(trimmedName)
+            error && setError('')
+        }
+        // если trimmedName - false, т.е '', то ...
+        else {
+            name && setName('')
+            setError('name is required')
         }
     }
 
     const addUser = () => {
-        if (name === '') {
-            setError(error = 'name is required')
-        } else if (name) {
-            alert(`Hello  ${name}!`)
-            setName('')
-            setError('')
-            addUserCallback(name)
+        addUserCallback(name)
+        alert(`Hello ${name} !`)
+        setName('')
+        }
+
+
+    const onKeyPressHandler = (event: KeyboardEvent<HTMLInputElement>) => {
+        if (event.key === 'Enter' && name) {
+            addUser()
         }
     }
-
-    const totalUsers = users.length // счетчик пользователей
+    const totalUsers = users.length // длина массива = счетчику пользователей
 
     return (
         <Greeting
@@ -47,7 +55,7 @@ const GreetingContainer: React.FC<GreetingContainerPropsType> = ({users, addUser
             addUser={addUser}
             error={error}
             totalUsers={totalUsers}
-            onKeyPressHandler = {onKeyPressHandler}
+            onKeyDownHandler={onKeyPressHandler}
         />
     )
 }
