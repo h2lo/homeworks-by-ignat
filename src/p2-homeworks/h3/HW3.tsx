@@ -11,7 +11,6 @@ export type UserType = {
 // уровень работы с глобальными данными
 function HW3() {
     const [users, setUsers] = useState<Array<UserType>>([]) // need to fix any
-    console.log(users)
 
     const addUserCallback = (userName: string) => { // need to fix any
         let user = {
@@ -29,6 +28,11 @@ function HW3() {
             {/*should work (должно работать)*/}
             <GreetingContainer users={users}
                                addUserCallback={addUserCallback}/>
+            {users.map((u, index)=> {
+                return <div key={index}>
+                    {u.name}
+                </div>
+            })}
 
             <hr/>
             {/*для личного творчества, могу проверить*/}

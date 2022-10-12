@@ -22,12 +22,15 @@ const Greeting: React.FC<GreetingPropsType> = (
                    onBlur = {setNameCallback}
                    onKeyDown = {onKeyDownHandler}
                    className={inputClass}/>
-            <button onClick={addUser} className={s.button} disabled = {!name}>
+            <button onClick={addUser}
+                    className={s.button}
+                    disabled = {!name}>
                 add</button>
             <span>{totalUsers}</span>
             <div className = {s.errorWarning}>{error}</div>
         </div>
     )
 }
-
+// событие onBlur возникает при потере фокуса на элементе
+// кнопка неактивна, пока имя не вводится
 export default Greeting

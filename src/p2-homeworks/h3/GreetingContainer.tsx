@@ -11,8 +11,6 @@ type GreetingContainerPropsType = {
 // function GreetingContainer(props: GreetingPropsType) {
 
 // более современный и удобный для про :)
-//
-
 // уровень локальной логики
 const GreetingContainer: React.FC<GreetingContainerPropsType> = ({users, addUserCallback}) => { // деструктуризация пропсов
     const [name, setName] = useState<string>('') // need to fix any
@@ -25,7 +23,7 @@ const GreetingContainer: React.FC<GreetingContainerPropsType> = ({users, addUser
         // если trimmedName - true, то ...
         if (trimmedName) {
             setName(trimmedName)
-            error && setError('')
+            error && setError('') // микрооптимизация: занулить ошибку, если она там была, т.о. убираем лишний пересет=лишнюю перерисовку
         }
         // если trimmedName - false, т.е '', то ...
         else {
@@ -41,8 +39,8 @@ const GreetingContainer: React.FC<GreetingContainerPropsType> = ({users, addUser
         }
 
 
-    const onKeyPressHandler = (event: KeyboardEvent<HTMLInputElement>) => {
-        if (event.key === 'Enter' && name) {
+    const onKeyDownHandler = (event: KeyboardEvent<HTMLInputElement>) => {
+        if (event.key === 'Enter' && name) { // проверка на наличие веденного name
             addUser()
         }
     }
@@ -55,7 +53,7 @@ const GreetingContainer: React.FC<GreetingContainerPropsType> = ({users, addUser
             addUser={addUser}
             error={error}
             totalUsers={totalUsers}
-            onKeyDownHandler={onKeyPressHandler}
+            onKeyDownHandler={onKeyDownHandler}
         />
     )
 }
