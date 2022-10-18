@@ -5,3 +5,9 @@
 .red {
     background: red;
 }
+
+.button {
+    width: 70px;
+    cursor: pointer;
+    margin: 5px 0;
+}

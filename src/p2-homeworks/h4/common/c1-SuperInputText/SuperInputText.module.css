@@ -1,12 +1,22 @@
 .superInput {
-
+    border: 3px solid darkolivegreen;
+    margin: 10px 0;
 }
 
 .errorInput {
-    border: 3px solid lime;
-    background: red;
+    border: 3px solid red;
 }
 
-.error {
-    color: red;
+.input {
+    outline: none;
+    border-radius: 5px;
 }
+
+.spanClassName {
+    color: darkred;
+    font-weight: bold;
+}
+
+/*.error {*/
+/*    color: red;*/
+/*}*/

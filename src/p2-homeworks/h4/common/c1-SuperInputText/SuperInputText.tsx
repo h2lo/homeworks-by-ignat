@@ -12,6 +12,7 @@ type SuperInputTextPropsType = DefaultInputPropsType & { // и + ещё проп
     error?: string
     spanClassName?: string
 }
+// добавление символа вопросительного знака «?» после имени props, делает props необязательными, это означает, что вы можете визуализировать компонент без передачи props, но когда вы передаете props, они должна быть объявленного типа.
 
 const SuperInputText: React.FC<SuperInputTextPropsType> = (
     {
@@ -38,8 +39,13 @@ const SuperInputText: React.FC<SuperInputTextPropsType> = (
         && onEnter() // то вызвать его
     }
 
-    const finalSpanClassName = `${s.error} ${spanClassName ? spanClassName : ''}`
-    const finalInputClassName = `${s.errorInput} ${className}` // need to fix with (?:) and s.superInput
+    // const finalSpanClassName = `${s.error} ${spanClassName ? spanClassName : ''}`
+    // Игнат не использовал spanClassName для спана в котором лежит текст ошибки, у него стили привязаны к s.error, мой вариант ниже:
+    const finalSpanClassName = error ? s.spanClassName : ''
+
+    const finalInputClassName =  `${s.input} ${error ? s.errorInput : s.superInput} ${className}`
+    // need to fix with (?:) and s.superInput
+    // ${className} отвечает за смешивание классов, значение лежит в HW4
 
     return (
         <>
