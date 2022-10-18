@@ -1,0 +1,39 @@
+.headerNavigation {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+
+    transition-duration: 800ms;
+    transform: translate(-210px);
+}
+
+.headerNavigation:hover {
+    transition-duration: 800ms;
+    transform: translate(0px);
+}
+
+.navLink {
+    text-decoration: none;
+}
+
+.navLink:hover {
+    cursor: pointer;
+    color: #fd013e;
+}
+
+.link {
+    color: black;
+}
+
+.active {
+    color: #bbffbb;
+    font-weight: bold;
+}
+
+.round {
+    height: 15px;
+    width: 15px;
+    border-radius: 15px;
+    background: #bbffbb;
+    border: 2px solid black;
+}
